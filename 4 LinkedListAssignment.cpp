@@ -4,12 +4,10 @@
 
 struct Node {
     int score;
-    Node *next;// next node
+    Node *next;
 
 }*head,*tail;
 
-// head : node pertama
-// tail : node terakhir
 
 Node *createNode(int score){
     Node *newNode = (Node*) malloc(sizeof(Node));
@@ -22,18 +20,15 @@ Node *createNode(int score){
 //push head, push tail
 
 void pushHead(int score){
-    // 1. buat dulu node
-    // 2. cek kondisi
-    //  jika tidak ada head, nodenya jadi head dan tail
-    // jika ada head, node akan menjadi head baru dan node->next = head lama
+
 
     Node *temp = createNode(score);
 
-    if(!head){ // jika gaada head
-        head = tail= temp; // maka node samad dgn tail dan tmp
+    if(!head){
+        head = tail= temp; 
     } else {
-        temp ->next = head; // node akan menunjuk ke head yang lama
-        head = temp; // node akan menjadi head yg baru
+        temp ->next = head; 
+        head = temp; 
     }
 
 }
@@ -69,7 +64,7 @@ void popHead(){
 
 void popTail(){
 
-    if (!head) return ;  // kalo gaada head langsung return
+    if (!head) return ;  
     else if (head==tail){
         free (head);
         head = tail = NULL;
